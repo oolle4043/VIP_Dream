@@ -43,8 +43,6 @@ async def register(user_id: str, user_pw:str, user_name: str, user_email:str,db:
     id_exist = db.query(models.User.user_id).filter_by(user_id=user_id).first()
     email_exist = db.query(models.User.user_email).filter_by(user_email=user_email).first()
 
-    print(user_id, user_pw, user_name, user_email)
-
     if not user_id or not user_pw:
         return {"result":"FALSE"}, 401
     if id_exist:
